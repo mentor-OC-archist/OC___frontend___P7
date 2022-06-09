@@ -1,6 +1,7 @@
 # BRANCH ___react1:
 
 - À la racine, se trouve l'état final du repo fil-rouge du cours (état Partie 3, Chapitre 3),
+- Toujours à la racine mais aussi dans le dossier assets, se trouvent une single_page_react_app (à "/quickstart.html"), ainsi que les fichiers JS permettants de lancer react en local sans CRA (à "/assets/babel.js", à "/assets/react.js", et à "/assets/reactdom.js")
 - Dans le dossier "filRouge", vous trouverez le repo fil rouge (amélioré par mes soins) du cours,
 - Dans le dossier "byChapter", vous trouverez des single_page_react_app (type "/quickstart.html") reprenants chacun les fontionnalités react abordées au chapitre dont ils portent le nom (ex: P2C5.html correspond aux fonctionnalités react abordées à la partie2 chapitre5)
 
