@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codepen: dark mode</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.7.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.7.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .box {
+            width: 300px;
+        }
+        .box h1 {
+            font-size: 20px;
+        }
+        .box.dark-mode {
+                background: black;
+                color: #bbb;
+        }
+        .box.dark-mode h1 {
+                    color: white;
+                }
+
+        .box.dark-mode .checkbox:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <a href="https://codepen.io/montesmakes/pen/WNrPKaO">codepen</a>
+    <hr>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+        // to do... proptypes? error handling?
+    // import React from 'react';
+    // import ReactDOM from 'react-dom';
+
+    // insert message code here
+    // import Message from './message.js';
+    class DarkModeToggler extends React.Component {
+        constructor(props) {
+            super(props)
+            // add the dark mode state key
+            this.state = {
+            darkMode: true
+            }
+            // bind the change event handler this object
+            this.handleChange = this.handleChange.bind(this)
+        }
+        
+        // now add the handle change event
+        handleChange(event) {
+            // toggle the darkMode state
+            this.setState({
+            darkMode : !this.state.darkMode
+            })
+        }
+        
+        // now add the render function
+        render() {
+            // setup state and props
+            const title = (this.props.title || 'Put a title here')
+            const modeClass = this.state.darkMode ? 'dark-mode' : 'light-mode'
+            const checked = this.state.darkMode ? 'checked' : 'unchecked'
+            console.log(this.state.darkMode)
+            return (
+                <div className={`box content ${modeClass}`}>
+                    <h1>{title}</h1>
+                    <p>Click the checkbox to toggle darkmode</p>
+                    <label>
+                        <input 
+                        type="checkbox" 
+                        defaultChecked={checked} 
+                        onChange={this.handleChange} />{' '}
+                        Dark Mode
+                    </label>
+                </div>
+            )
+        }
+    }
+
+    const el = document.getElementById('root')
+    ReactDOM.render(
+        <DarkModeToggler title="Toggle Dark Mode" />,
+        el
+    );
+
+    // class Card extends React.Component {
+        
+    //   constructor(props) {
+    //     super(props)
+    //     this.state = { 
+    //       darkMode: true
+    //     }
+    //     this.handleChange = this.handleChange.bind(this);
+    //   }
+        
+    //   handleChange(event) {
+    //     this.setState({ darkMode: !this.state.darkMode });
+    //   }
+        
+    //   componentWillMount() {
+    //     // could do something like pull state from API
+    //   }
+        
+    //   componentDidMount() {
+    //   }
+        
+    //   componentWillUnmount() {
+    //   }
+
+    //   componentDidUpdate() {
+    //   }
+        
+    //   render() {
+    //     const { title } = this.props;
+    //     let modeClass = this.state.darkMode ? "dark-mode" : "light-mode";
+    //     let checked = this.state.darkMode ? "checked" : "unchecked";
+        
+    //     return <div className={`box content ${modeClass}`}>
+    //       <h1>{title}</h1>
+    //       <p>I was built with a Class component extending React.Component.</p>
+    //       <label className="checkbox">
+    //         <input 
+    //           type="checkbox" 
+    //           defaultChecked={checked} 
+    //           onChange={this.handleChange} />
+    //         {' '}Dark Mode
+    //       </label>
+    //     </div>;
+    //   }
+
+    // }
+
+    // const el = document.querySelector("#root");
+    // ReactDOM.render(<Card title='Example Component' />, el);
+</script>
+
+</html>
